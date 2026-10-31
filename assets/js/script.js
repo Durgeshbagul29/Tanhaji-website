@@ -1211,8 +1211,7 @@ function initHeroVideoObserver() {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function ensureHeroSrc() {
         if (heroVideo.getAttribute('src')) return;
-        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-        heroVideo.src = isDesktop ? heroVideo.dataset.srcDesktop : heroVideo.dataset.srcMobile;
+        heroVideo.src = 'assets/hero-720.mp4';
         heroVideo.load();
     }
     if (conn.saveData || reduceMotion) {
