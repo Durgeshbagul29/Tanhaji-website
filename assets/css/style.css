@@ -200,7 +200,6 @@ nav a.active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 nav a::after {
@@ -619,7 +618,6 @@ section h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   line-height: 2;
@@ -645,7 +643,6 @@ section h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   line-height: 2;
@@ -669,7 +666,6 @@ section h4 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   line-height: 2;
@@ -714,7 +710,6 @@ section h4 {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
   transition: filter 0.2s ease;
 }
 
@@ -1079,7 +1074,6 @@ section h4 {
   color: transparent;
   font-weight: bold;
   font-family: 'Sirin Stencil', Impact, 'Arial Black', sans-serif;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
 }
@@ -1261,7 +1255,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
   -webkit-text-fill-color: currentColor !important;
-  text-fill-color: currentColor !important;
   font-size: 1.05rem;
   font-weight: 500;
   text-decoration: none;
@@ -1297,7 +1290,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: transparent !important;
   color: #ff8c00;
   -webkit-text-fill-color: #ff8c00 !important;
-  text-fill-color: #ff8c00 !important;
 }
 
 .mobile-drawer-link:hover i,
@@ -1315,7 +1307,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: transparent !important;
   color: #ff8c00;
   -webkit-text-fill-color: #ff8c00 !important;
-  text-fill-color: #ff8c00 !important;
   border: none !important;
 }
 

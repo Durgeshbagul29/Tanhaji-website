@@ -25,7 +25,6 @@ nav a.active {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 nav a::after {
@@ -300,7 +299,6 @@ section h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   margin-bottom: 30px;
@@ -328,7 +326,6 @@ section h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   margin-bottom: 20px; 
@@ -353,7 +350,6 @@ section h4 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
   margin-bottom: 15px;
@@ -598,7 +594,6 @@ section h4::after {
   color: transparent;
   font-weight: bold;
   font-family: 'Sirin Stencil', Impact, 'Arial Black', sans-serif;
-  text-fill-color: transparent;
   position: relative;
   display: inline-block;
 }
@@ -736,7 +731,6 @@ section h4::after {
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
   -webkit-text-fill-color: currentColor !important;
-  text-fill-color: currentColor !important;
   font-size: 1.05rem;
   font-weight: 500;
   text-decoration: none;
@@ -772,7 +766,6 @@ section h4::after {
   background: transparent !important;
   color: #ff8c00;
   -webkit-text-fill-color: #ff8c00 !important;
-  text-fill-color: #ff8c00 !important;
 }
 
 .mobile-drawer-link:hover i,
@@ -790,7 +783,6 @@ section h4::after {
   background: transparent !important;
   color: #ff8c00;
   -webkit-text-fill-color: #ff8c00 !important;
-  text-fill-color: #ff8c00 !important;
   border: none !important;
 }
 
@@ -981,7 +973,6 @@ section h4::after {
   box-sizing: border-box !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
-  text-fill-color: #ffffff !important;
 }
 
 .steam-download-btn i,
