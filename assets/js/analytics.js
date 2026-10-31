@@ -6,13 +6,15 @@
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
   if (id && /^G-[A-Z0-9]+$/.test(id)) {
-    var tag = document.createElement('script');
-    tag.async = true;
-    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-    document.head.appendChild(tag);
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', id);
+    if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+      var tag = document.createElement('script');
+      tag.async = true;
+      tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(tag);
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', id);
+    }
   }
   // Count clicks on store buttons (Google Play, App Store, Steam, Amazon)
   document.addEventListener('click', function (e) {
