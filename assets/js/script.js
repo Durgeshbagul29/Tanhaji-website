@@ -898,9 +898,9 @@ function loadBlogData() {
         blogCard.className = 'blog-card bg-gray-900 rounded-lg overflow-hidden shadow-xl';
         blogCard.innerHTML = `
             <div class="image-container">
-                <img loading="lazy" decoding="async" src="${blog.image}" alt="${blog.title}" class="w-full h-full object-contain">
+                <img loading="lazy" decoding="async" src="${blog.image}" alt="${blog.title}" class="w-full h-full object-cover">
             </div>
-            <div class="p-6">
+            <div class="blog-card-body p-4 sm:p-6">
                 <div class="flex items-center text-gray-400 mb-3">
                     <i class="far fa-calendar mr-2"></i>
                     <span>${blog.date}</span>

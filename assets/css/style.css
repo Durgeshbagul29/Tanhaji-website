@@ -1358,3 +1358,99 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
   transform: translateY(-1px);
 }
+
+/* ========================================================
+   Game Blogs Section Styles & Mobile Optimization
+   ======================================================== */
+.blog-card {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 140, 0, 0.6);
+  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.2);
+}
+
+.blog-card .image-container {
+  width: 100%;
+  max-height: 380px;
+  overflow: hidden;
+  background: #0b1120;
+}
+
+.blog-card .image-container img {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-card-body {
+  padding: 1.5rem;
+}
+
+/* Mobile responsive padding and typography */
+@media (max-width: 640px) {
+  #blogs .container {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .blog-card .blog-card-body,
+  .blog-card .p-6,
+  .blog-card .p-4 {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+    padding-top: 1.15rem !important;
+    padding-bottom: 1.15rem !important;
+  }
+
+  .blog-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+}
+
+/* Full Blog Content Styling inside expanded Read More */
+.blog-content {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+}
+
+.blog-content h3 {
+  color: #ff8c00;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content p {
+  color: #cbd5e1;
+  margin-bottom: 0.85rem;
+  line-height: 1.65;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+  color: #e2e8f0;
+}
+
+.blog-content li {
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.blog-content strong {
+  color: #f1f5f9;
+}
