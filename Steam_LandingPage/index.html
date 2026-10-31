@@ -69,20 +69,55 @@
         <a href="#download" class="text-white hover:text-orange-500 transition duration-300 nav-link">Download</a>
       </nav>
       <div class="md:hidden">
-        <button id="menu-toggle" class="text-white">
+        <button id="menu-toggle" class="text-white hover:text-orange-500 transition duration-200 p-2 focus:outline-none" aria-label="Toggle navigation menu"
+          aria-controls="mobile-menu" aria-expanded="false">
           <i class="fas fa-bars text-2xl"></i>
         </button>
       </div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 absolute w-full py-4">
-      <div class="container mx-auto px-4 flex flex-col space-y-4 max-w-[1200px]">
-        <a href="#about" class="text-white hover:text-orange-500 transition duration-300 nav-link">About</a>
-        <a href="#features" class="text-white hover:text-orange-500 transition duration-300 nav-link">Features</a>
-        <a href="#screenshots" class="text-white hover:text-orange-500 transition duration-300 nav-link">Screenshots</a>
-        <a href="#system" class="text-white hover:text-orange-500 transition duration-300 nav-link">System
-          Requirements</a>
-        <a href="#download" class="text-white hover:text-orange-500 transition duration-300 nav-link">Download</a>
+    <!-- Mobile Navigation Overlay & Left Drawer -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+    <div id="mobile-menu" class="mobile-menu-drawer" aria-label="Mobile Navigation" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="mobile-drawer-header">
+        <a href="../" class="flex items-center gap-2">
+          <img src="../assets/images/tanhaji-logo.webp" alt="Tanhaji Logo" class="h-10 w-auto" width="160" height="90">
+        </a>
+        <button id="mobile-menu-close" class="mobile-drawer-close" aria-label="Close navigation menu">
+          <i class="fas fa-times text-base"></i>
+        </button>
+      </div>
+      <nav class="mobile-drawer-nav">
+        <a href="#about" class="mobile-drawer-link nav-link active">
+          <i class="fas fa-crown"></i>
+          <span>About</span>
+        </a>
+        <a href="#features" class="mobile-drawer-link nav-link">
+          <i class="fas fa-gamepad"></i>
+          <span>Features</span>
+        </a>
+        <a href="#screenshots" class="mobile-drawer-link nav-link">
+          <i class="fas fa-play"></i>
+          <span>Screenshots</span>
+        </a>
+        <a href="#system" class="mobile-drawer-link nav-link">
+          <i class="fas fa-desktop"></i>
+          <span>System Requirements</span>
+        </a>
+        <a href="#download" class="mobile-drawer-link nav-link">
+          <i class="fas fa-cloud"></i>
+          <span>Download</span>
+        </a>
+        <a href="../" class="mobile-drawer-link">
+          <i class="fas fa-chevron-left"></i>
+          <span>Back to Main Website</span>
+        </a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="https://store.steampowered.com/app/1732270/Tanhaji__The_Lion_Maratha_Warrior_of_Ch_Shivaji/" target="_blank" rel="noopener noreferrer" class="mobile-drawer-cta">
+          <i class="fab fa-steam"></i>
+          <span>Get on Steam</span>
+        </a>
+        <p class="text-xs text-center text-gray-400">Steam Edition | AbracaDabra</p>
       </div>
     </div>
   </header>

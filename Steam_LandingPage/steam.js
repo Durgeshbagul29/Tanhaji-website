@@ -1,30 +1,76 @@
 // Steam Landing Page JavaScript
 
-// Mobile menu toggle
+// Mobile menu drawer toggle & interaction
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const backToTopButton = document.getElementById('backToTop');
     const navLinks = document.querySelectorAll('.nav-link');
     const prevSlideButton = document.getElementById('prev-slide');
     const nextSlideButton = document.getElementById('next-slide');
-    
+
+    function openMobileDrawer() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('active');
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('active');
+        document.body.classList.add('overflow-hidden');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMobileDrawer() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('active');
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+        document.body.classList.remove('overflow-hidden');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+
     if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            if (mobileMenu) {
-                mobileMenu.classList.toggle('hidden');
+        menuToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                closeMobileDrawer();
+            } else {
+                openMobileDrawer();
             }
         });
     }
-    
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function(event) {
+            event.stopPropagation();
+            closeMobileDrawer();
+        });
+    }
+
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function() {
+            closeMobileDrawer();
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileDrawer();
+        }
+    });
+
+    // Close when resized to desktop breakpoint
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileDrawer();
+        }
+    });
+
     // Close mobile menu when clicking on a nav link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-            
-            // Update active nav link
+            closeMobileDrawer();
             updateActiveNavLink(this);
         });
     });

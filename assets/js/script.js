@@ -105,53 +105,74 @@ const newsVideoData = [
     },
 ];
 
-// Mobile Menu Toggle
+// Mobile Menu Drawer Handlers
 document.addEventListener('DOMContentLoaded', function () {
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-    if (menuToggle && mobileMenu) {
+    function openMobileDrawer() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('active');
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('active');
+        document.body.classList.add('overflow-hidden');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeMobileDrawer() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('active');
+        if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+        document.body.classList.remove('overflow-hidden');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    if (menuToggle) {
         menuToggle.addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent event from bubbling up to document
-            mobileMenu.classList.toggle('hidden');
-            // Add animation class
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('animate-fadeInDown');
-                // Change icon to close when menu is open
-                menuToggle.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+            event.stopPropagation();
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                closeMobileDrawer();
             } else {
-                // Change icon back to bars when menu is closed
-                menuToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-            }
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            // Only close if menu is open and click is outside menu and toggle button
-            if (!mobileMenu.classList.contains('hidden') &&
-                !mobileMenu.contains(event.target) &&
-                !menuToggle.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-                // Change icon back to bars when menu is closed
-                menuToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+                openMobileDrawer();
             }
         });
     }
 
-    // Close mobile menu when clicking on a nav link
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closeMobileDrawer();
+        });
+    }
+
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function () {
+            closeMobileDrawer();
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileDrawer();
+        }
+    });
+
+    // Close when resized to desktop breakpoint
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileDrawer();
+        }
+    });
+
+    // Close mobile menu when clicking on any nav link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function () {
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                // Change icon back to bars when menu is closed
-                if (menuToggle) {
-                    menuToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-                }
-            }
-
-            // Update active nav link
+            closeMobileDrawer();
             updateActiveNavLink(this);
         });
     });
@@ -1156,7 +1177,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const mapModal = document.getElementById('map-modal');
 
     if (closeMapModalBtn) {
-        closeMapModalBtn.addEventListener('click', closeMapModal);
+        closeMapModalBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeMapModal();
+        });
     }
 
     if (mapModal) {
@@ -1259,7 +1283,7 @@ function initHeroVideoObserver() {
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
     if (!toggle || !menu) return;
-    const sync = () => toggle.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
+    const sync = () => toggle.setAttribute('aria-expanded', String(menu.classList.contains('active')));
     sync();
     new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['class'] });
 })();

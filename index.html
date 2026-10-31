@@ -77,22 +77,62 @@
                 <a href="#contact" class="nav-link text-white hover:text-orange-500 transition duration-300">Contact</a>
             </nav>
             <div class="md:hidden">
-                <button id="menu-toggle" class="text-white" aria-label="Toggle navigation menu"
-                    aria-controls="mobile-menu" aria-expanded="false">
+                <button id="menu-toggle"
+                    class="text-white hover:text-orange-500 transition duration-200 p-2 focus:outline-none"
+                    aria-label="Toggle navigation menu" aria-controls="mobile-menu" aria-expanded="false">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 absolute w-full py-4">
-            <div class="container mx-auto px-4 flex flex-col space-y-4 max-w-[1300px]">
-                <a href="#home" class="nav-link text-white hover:text-orange-500 transition duration-300">Home</a>
-                <a href="#about" class="nav-link text-white hover:text-orange-500 transition duration-300">About</a>
-                <a href="#gallery" class="nav-link text-white hover:text-orange-500 transition duration-300">Gallery</a>
-                <a href="#maps" class="nav-link text-white hover:text-orange-500 transition duration-300">Maps</a>
-                <a href="#news" class="nav-link text-white hover:text-orange-500 transition duration-300">News</a>
-                <a href="#blogs" class="nav-link text-white hover:text-orange-500 transition duration-300">Blogs</a>
-                <a href="#contact" class="nav-link text-white hover:text-orange-500 transition duration-300">Contact</a>
+        <!-- Mobile Navigation Overlay & Left Drawer -->
+        <div id="mobile-menu-overlay" class="mobile-menu-overlay" aria-hidden="true"></div>
+        <div id="mobile-menu" class="mobile-menu-drawer" aria-label="Mobile Navigation" role="dialog" aria-modal="true"
+            aria-hidden="true">
+            <div class="mobile-drawer-header">
+                <div class="flex items-center gap-2">
+                    <img src="assets/images/tanhaji-logo.webp" alt="Tanhaji Logo" class="h-10 w-auto" width="160"
+                        height="90">
+                </div>
+                <button id="mobile-menu-close" class="mobile-drawer-close" aria-label="Close navigation menu">
+                    <i class="fas fa-times text-base"></i>
+                </button>
+            </div>
+            <nav class="mobile-drawer-nav">
+                <a href="#home" class="mobile-drawer-link nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#about" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-crown"></i>
+                    <span>About</span>
+                </a>
+                <a href="#gallery" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-play"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="#maps" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-mountain"></i>
+                    <span>Maps</span>
+                </a>
+                <a href="#news" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-flag"></i>
+                    <span>News</span>
+                </a>
+                <a href="#blogs" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-globe"></i>
+                    <span>Blogs</span>
+                </a>
+                <a href="#contact" class="mobile-drawer-link nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </nav>
+            <div class="mobile-drawer-footer">
+                <a href="Steam_LandingPage/" class="mobile-drawer-cta">
+                    <i class="fab fa-steam"></i>
+                    <span>Steam Edition</span>
+                </a>
+                <p class="text-xs text-center text-gray-400">© AbracaDabra Software Solutions</p>
             </div>
         </div>
     </header>
@@ -477,11 +517,11 @@
                             in your hands.
                         </p>
                     </div>
-                    <div class="lg:ml-32 lg:w-1/2 animate-fadeIn">
-                        <div class="relative">
+                    <div class="lg:ml-32 lg:w-1/2 animate-fadeIn w-full flex justify-center">
+                        <div class="relative w-full max-w-[460px]">
                             <div id="map-image-container">
                                 <img src="assets/images/maps/fort.webp" alt="Fort Kondhana map from the Tanhaji game"
-                                    class="fort-kondhana-image rounded-lg shadow-2xl w-full transition duration-300 hover:shadow-white hover:scale-105"
+                                    class="fort-kondhana-image rounded-lg shadow-2xl"
                                     width="1024" height="1024" loading="lazy" decoding="async">
                             </div>
                         </div>
@@ -495,17 +535,16 @@
 
                 <!-- Map Image Modal -->
                 <div id="map-modal"
-                    class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
-                    <div class="relative max-w-6xl max-h-[50%]">
-                        <button id="close-map-modal"
-                            class="absolute top-10 right-10 text-white text-3xl hover:text-orange-500 transition duration-300 z-60">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden border-2 border-orange-500 shadow-2xl">
-                            <img id="modal-map-image" src="" alt="" class="w-full max-h-[80vh] object-contain">
-                            <div class="bg-gray-900 bg-opacity-80 p-4">
-                                <h3 id="modal-map-title" class="text-2xl font-bold text-white text-center"></h3>
-                            </div>
+                    class="fixed inset-0 bg-black/90 z-[1000] hidden flex items-center justify-center p-3 sm:p-4">
+                    <div class="map-modal-dialog">
+                        <div class="map-modal-image-wrap">
+                            <img id="modal-map-image" src="" alt="" class="w-full max-h-[72vh] object-contain block">
+                            <button id="close-map-modal" aria-label="Close map dialog">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="bg-gray-900/95 p-3 sm:p-4 border-t border-gray-700/60">
+                            <h3 id="modal-map-title" class="text-xl sm:text-2xl font-bold text-white text-center"></h3>
                         </div>
                     </div>
                 </div>
