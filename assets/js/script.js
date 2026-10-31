@@ -309,7 +309,7 @@ function loadMapsData() {
     // Generate map cards
     mapsData.forEach((map, index) => {
         const mapCard = document.createElement('div');
-        mapCard.className = `map-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${index < mapsData.length - 1 ? 'mb-8' : ''} flex flex-col md:flex-row${map.reverse ? '-reverse' : ''}`;
+        mapCard.className = `map-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${index < mapsData.length - 1 ? 'mb-8' : ''} flex flex-col ${map.reverse ? 'map-card-reverse md:flex-row-reverse' : 'md:flex-row'}`;
         mapCard.setAttribute('onclick', `openMapModal('${map.image}', '${map.title}')`);
 
         mapCard.innerHTML = `

@@ -272,6 +272,14 @@ nav a.active::after {
   border-radius: 0.75rem; /* consistent with rounded-xl */
 }
 
+@media (min-width: 768px) {
+  .map-card-reverse,
+  .map-card.md\:flex-row-reverse,
+  .md\:flex-row-reverse {
+    flex-direction: row-reverse !important;
+  }
+}
+
 /* Map Card Content Area */
 .map-card .md\:w-3\/5 {
   background-color: rgba(31, 41, 55, 0.7); /* Reduced opacity from default */
